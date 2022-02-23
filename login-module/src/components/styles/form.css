@@ -27,7 +27,7 @@ button {
 }
 
 .form-group {
-  width: 350px;
+  width: 400px;
   display: flex;
   justify-content: space-between;
 }
@@ -39,7 +39,7 @@ button {
   padding: var(--main-padding);
   border-radius: 20px;
 }
-#login-div article {
+.holding-form article {
   display: flex;
   flex-direction: column;
   align-items: center;
