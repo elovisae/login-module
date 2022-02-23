@@ -10,15 +10,15 @@ export class RegisterComponent extends Component {
             <form action="">
                 <div className="form-group">
                   <label htmlFor="email">Mail: </label>
-                  <input type="email" name="email" id="email"/>
+                  <input type="email" name="email" id="email" placeholder='name@mail.com'/>
                 </div>
                 <div className="form-group">
                   <label htmlFor="full-name">Full name: </label>
-                  <input type="text" name="full-name" id="full-name" />
+                  <input type="text" name="full-name" id="full-name" placeholder='Firstname Lastname' />
                 </div>
                 <div className="form-group">
                   <label htmlFor="phone">Phone number: </label>
-                  <input type="number" name="phone" id="phone" />
+                  <input type="number" name="phone" id="phone" placeholder='070-123 45 67'/>
                 </div>
                 <div className="form-group">
                   <label htmlFor="password">Password: </label>
