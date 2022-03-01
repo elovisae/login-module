@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-import './styles/form.css';
+import './styles/LoginRegistrationComponents.css';
 
 export class RegisterComponent extends Component {
   render() {
     return (
-        <div id="register-div" className='holding-form'>
+        <div id="register-div" className='form-div'>
         <h1>Register and create Your Gallery</h1>
         <article> 
-            <form action="">
+            <form>
                 <div className="form-group">
                   <label htmlFor="email">Mail: </label>
                   <input type="email" name="email" id="email" placeholder='name@mail.com'/>
