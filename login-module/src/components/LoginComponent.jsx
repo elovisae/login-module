@@ -3,7 +3,6 @@ import './styles/LoginRegistrationComponents.css';
 import RegisterComponent from './RegisterComponent';
 
 const LoginComponent = () => {
-
     const handleClick =() =>{
         console.log("button onclick is working and connected w func")
     }
