@@ -1,33 +1,44 @@
 import React, { Component } from 'react';
-import './styles/form.css';
+import './styles/LoginRegistrationComponents.css';
+import RegisterComponent from './RegisterComponent';
 
-export class LoginComponent extends Component {
-  render() {
+const LoginComponent = () => {
+
+    const handleClick =() => {
+        console.log("button onclick is working and connected w func")
+    }
+    const handleSubmit = (e) =>{
+        e.preventDefault();
+    }
+
     return (
-      <div id="login-div" class="holding-form">
-          <h1>Login to Your Gallery</h1>
-          <article> 
-              <form action="">
-                  <div className="form-group">
-                    <label htmlFor="email">Mail: </label>
-                    <input type="email" name="email" id="email"/>
-                  </div>
-                  <div className="form-group">
-                    <label htmlFor="password">Password: </label>
-                    <input type="password" name="password" id="password" />
-                  </div>
-                  <button>Sign in</button>
+        <div id="holder">
+            <div id="login-div" className="form-div">
+                <h1>Login to Your Gallery</h1>
+                <article> 
+                    <form onSubmit={ handleSubmit }>
+                        <div className="form-group">
+                            <label htmlFor="email">Mail: </label>
+                            <input type="email" name="email" id="email"/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="password">Password: </label>
+                            <input type="password" name="password" id="password" /> 
+                        </div>
+                        <button>Sign in</button>
 
-              </form>
-              <section id="register">
-              <p>Don't have an account?</p>
-              <button>Register now!</button>
-                  
-              </section>
-          </article>
+                    </form>
+                    <section id="register">
+                    <p>Don't have an account? </p>
+                    <button onClick = { handleClick }>Register now!</button>
+                        
+                    </section>
+                </article>
+            </div>
       </div>
     )
-  }
 }
 
-export default LoginComponent
+export default LoginComponent;
+
+
