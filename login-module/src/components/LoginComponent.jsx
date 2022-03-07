@@ -3,8 +3,12 @@ import './styles/LoginRegistrationComponents.css';
 import RegisterComponent from './RegisterComponent';
 
 const LoginComponent = () => {
-    const handleClick =() =>{
+
+    const handleClick =() => {
         console.log("button onclick is working and connected w func")
+    }
+    const handleSubmit = (e) =>{
+        e.preventDefault();
     }
 
     return (
@@ -12,16 +16,14 @@ const LoginComponent = () => {
             <div id="login-div" className="form-div">
                 <h1>Login to Your Gallery</h1>
                 <article> 
-                    <form>
+                    <form onSubmit={ handleSubmit }>
                         <div className="form-group">
                             <label htmlFor="email">Mail: </label>
-                                <input type="email" name="email" id="email"/>
-                            
+                            <input type="email" name="email" id="email"/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="password">Password: </label>
-                                <input type="password" name="password" id="password" />
-                            
+                            <input type="password" name="password" id="password" /> 
                         </div>
                         <button>Sign in</button>
 
