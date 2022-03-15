@@ -9,16 +9,25 @@ const RegisterComponent = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(mail, name, phone, password)
+    let validation = passwordValidation(password)
+    if (validation === true){
+      console.log(mail, name, phone, password)
+      let data = {name: name, mail: mail, phone: phone, password: password}
+      console.log(data)
+    }
+    fetch('http://localhost:')
+    
   }
+  
+
   return (
       <div id="register-div" className='form-div'>
       <h1>Register and create Your Gallery</h1>
       <article> 
           <form onSubmit={ handleSubmit }>
               <div className="form-group">
-                <label htmlFor="email">Mail: </label>
-                <input type="email" name="email" id="email" placeholder='name@mail.com' onChange={ e => setMail(e.target.value) }/>
+                <label htmlFor="mail">Mail: </label>
+                <input type="mail" name="mail" id="mail" placeholder='name@mail.com' onChange={ e => setMail(e.target.value) }/>
               </div>
               <div className="form-group">
                 <label htmlFor="full-name">Full name: </label>
@@ -38,6 +47,25 @@ const RegisterComponent = () => {
       </article>
   </div>
   )
+}
+
+const passwordValidation = (password) =>{ 
+  const errors = []
+  if (password.length < 8){
+   errors.push('Password must be at least 8 characters');
+  }
+  if (password.search(/[a-z]/i) < 0){
+    errors.push('Password must contain at least one letter');
+  }
+  if (password.search(/[0-9]/) < 0) {
+    errors.push("Your password must contain at least one digit."); 
+  }
+  if (errors.length > 0) {
+    alert(errors.join("\n"))
+    return false
+  }
+  return true
+  
 }
 
 export default RegisterComponent

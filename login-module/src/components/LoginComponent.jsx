@@ -9,7 +9,6 @@ const LoginComponent = () => {
     const handleSubmit = (e) =>{
         e.preventDefault();
     }
-
     return (
         <div id="holder">
             <div id="login-div" className="form-div">
