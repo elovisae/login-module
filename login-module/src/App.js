@@ -5,9 +5,12 @@ import RegisterComponent from './components/RegisterComponent';
 
 function App() {
   return (
-    <div className="App">
-      <LoginComponent />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginComponent/>}/>
+        <Route path="/register" element={<RegisterComponent/>}/>
+      </Routes>
+    </Router>
   );
 }
 

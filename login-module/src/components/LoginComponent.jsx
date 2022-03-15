@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './styles/LoginRegistrationComponents.css';
+import {useNavigate} from 'react-router-dom';
 import RegisterComponent from './RegisterComponent';
 
 const LoginComponent = () => {
+    const navigate = useNavigate();
 
-    const handleClick =() => {
-        console.log("button onclick is working and connected w func")
-    }
     const handleSubmit = (e) =>{
         e.preventDefault();
     }
@@ -30,7 +29,7 @@ const LoginComponent = () => {
                     </form>
                     <section id="register">
                     <p>Don't have an account? </p>
-                    <button onClick = { handleClick }>Register now!</button>
+                    <button onClick = { () => {navigate("/register")} }>Register now!</button>
                         
                     </section>
                 </article>
