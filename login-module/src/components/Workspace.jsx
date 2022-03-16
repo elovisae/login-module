@@ -9,7 +9,7 @@ const Workspace = () => {
   if(location.state && location.state.loggedIn){
     return (
       <div id="wrapper">
-        <h1 class="welcome-title">Welcome {location.state.name}!</h1>
+        <h1 className="welcome-title">Welcome {location.state.name}!</h1>
         <article id="workspace">
           <section>
             <h2>Things to do:</h2> 

@@ -9,35 +9,40 @@ const LoginComponent = () => {
     
     async function handleSubmit (e) {
         e.preventDefault();
-        const validation  = document.getElementById('validation');
+        if(mail === '' || password === ''){
+            alert('You must write both mail and password before trying to login')
+        }else{
 
-        let userData = {
-            "mail": mail,
-            "password": password
-        } 
-        try {
-            let response = await fetch('http://localhost:5000/users/login', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-              },
-              body: JSON.stringify(userData)
-          })
-          let data     = await response.json()
-          
-          validation.innerText = data.message;
-          if (data.loggedIn){
-              setTimeout(() => {
-                      navigate('/workspace',
-                      {state: {loggedIn: true, name: data.name}}, 2000)
-                  }
-              )
-          }
+            const validation  = document.getElementById('validation');
     
-            
-
-        } catch (error) {
-            console.log(error)
+            let userData = {
+                "mail": mail,
+                "password": password
+            } 
+            try {
+                let response = await fetch('http://localhost:5000/users/login', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify(userData)
+              })
+              let data     = await response.json()
+              
+              validation.innerText = data.message;
+              if (data.loggedIn){
+                  setTimeout(() => {
+                          navigate('/workspace',
+                          {state: {loggedIn: true, name: data.name}}, 1500)
+                      }
+                  )
+              }
+        
+                
+    
+            } catch (error) {
+                console.log(error)
+            }
         }
         
     }
@@ -56,11 +61,11 @@ const LoginComponent = () => {
                             <input type="password" name="password" id="password" onChange={e => setPassword(e.target.value)}/> 
                         </div>
                         <button>Sign in</button>
-                        <p id="validation" class="bolder"></p>
+                        <p id="validation" className="bolder"></p>
 
                     </form>
                     <section id="register">
-                    <p class="bolder">Don't have an account? </p>
+                    <p className="bolder">Don't have an account? </p>
                     <button onClick = { () => {navigate("/register")} }>Register now!</button>
                         
                     </section>

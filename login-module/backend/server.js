@@ -29,6 +29,8 @@ app.post('/users/login', async (req, res) => {
                 }
             })
         })
+    }else{
+        res.send({message:'A user with that email does not exist', loggedIn: false})
     }
 
 })

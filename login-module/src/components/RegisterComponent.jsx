@@ -31,7 +31,7 @@ const RegisterComponent = () => {
           let data     = await response.json()
           validation.innerText = data.message;
           if(data.success){
-            setTimeout(() => {navigate('/')}, 3000)
+            setTimeout(() => {navigate('/')}, 1500)
           }
       } catch(error){
           console.log(error)
@@ -88,10 +88,8 @@ const passwordValidation = (password, validation) =>{
   }
   if (errors.length > 0) {
     validation.innerText = (errors.join("\n"));
-    validation.classList.add('red-validation');
     return false
   }
-  validation.classList.remove('red-validation')
   return true
     
 }
