@@ -5,6 +5,7 @@ import RegisterComponent from './components/RegisterComponent';
 import Gallery from './components/Gallery';
 
 function App() {
+  
   return (
     <Router>
       <Routes>

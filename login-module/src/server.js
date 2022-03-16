@@ -16,7 +16,6 @@ app.post('/users/login', async (req, res) => {
     const userEmail = user.mail;
 
     const isUserRegistered = await User.exists({mail: userEmail});
-    console.log(isUserRegistered)
     if (isUserRegistered){
         User.find()
         .then((result) => {
@@ -24,9 +23,9 @@ app.post('/users/login', async (req, res) => {
             allUsers.map((dbuser) => {
                 if(user.mail === dbuser.mail){
                     if(user.password === dbuser.password){
-                        res.send({message:'Logging in', success: true})
+                        res.send({message:'Logging in', loggedIn: true, name: dbuser.name})
                     }else{
-                        res.send({message:'Wrong password, try again', success: false})
+                        res.send({message:'Wrong password, try again', loggedIn: false})
                     }
                 }
             })

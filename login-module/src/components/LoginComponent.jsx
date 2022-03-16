@@ -15,7 +15,6 @@ const LoginComponent = () => {
             "mail": mail,
             "password": password
         } 
-        console.log(userData)
         try {
             let response = await fetch('http://localhost:5000/users/login', {
               method: 'POST',
@@ -27,10 +26,16 @@ const LoginComponent = () => {
           let data     = await response.json()
           
           validation.innerText = data.message;
-          if (data.success){
-              setTimeout(() => {navigate('/gallery')}, 3000)
+          if (data.loggedIn){
+              setTimeout(() => {
+                      navigate('/gallery',
+                      {state: {loggedIn: true, name: data.name}}, 3000)
+                  }
+              )
           }
+    
             
+
         } catch (error) {
             console.log(error)
         }
