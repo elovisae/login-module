@@ -28,8 +28,8 @@ const LoginComponent = () => {
           validation.innerText = data.message;
           if (data.loggedIn){
               setTimeout(() => {
-                      navigate('/gallery',
-                      {state: {loggedIn: true, name: data.name}}, 3000)
+                      navigate('/workspace',
+                      {state: {loggedIn: true, name: data.name}}, 2000)
                   }
               )
           }

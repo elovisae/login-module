@@ -1,8 +1,8 @@
 import React from 'react'
 import {useLocation, useNavigate, Link} from 'react-router-dom'
-import './styles/GalleryStyles.css';
+import './styles/WorkspaceStyles.css';
 
-const Gallery = () => {
+const Workspace = () => {
   const location  = useLocation();
   const navigate  = useNavigate();
 
@@ -49,4 +49,4 @@ const Gallery = () => {
   }
 }
 
-export default Gallery
+export default Workspace

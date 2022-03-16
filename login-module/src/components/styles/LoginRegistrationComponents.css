@@ -20,9 +20,13 @@ button {
 label {
   font-weight: 600;
 }
-input,
-button {
+input{
   border-radius: 5px;
+}
+input[type="text"],
+input[type="mail"],
+input[type="password"]{
+  padding:3px;
 }
 button {
   padding: 10px 15px;
@@ -38,12 +42,12 @@ button:hover {
   color:white;
   background-color: rgb(38, 67, 44);
 }
-input{
-  background-color: rgba(255, 255, 255, 0.534);
-  
+
+form{
+  border-bottom:2px dotted black;
 }
 .form-group {
-  width: 400px;
+  width: 450px;
   display: flex;
   justify-content: space-between;
 }
