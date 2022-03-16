@@ -14,22 +14,40 @@ p,
 label,
 input,
 button {
-  font-size: 18px;
+  font-size: 20px;
   margin-top: 10px;
 }
 label {
-  font-weight: bold;
+  font-weight: 600;
 }
-input,
-button {
+input{
   border-radius: 5px;
 }
+input[type="text"],
+input[type="mail"],
+input[type="password"]{
+  padding:3px;
+}
 button {
-  padding: 5px 10px;
+  padding: 10px 15px;
+  background-color: white;
+  color:black;
+  border-radius: 8px ;
+  border: 2px solid rgb(38, 67, 44);
+  box-shadow: 6px 5px 12px 2px rgba(73,73,73,0.47);
+  transition: 0.08s ease-in-out;
+
+}
+button:hover {
+  color:white;
+  background-color: rgb(38, 67, 44);
 }
 
+form{
+  border-bottom:2px dotted black;
+}
 .form-group {
-  width: 400px;
+  width: 450px;
   display: flex;
   justify-content: space-between;
 }
@@ -46,13 +64,18 @@ button {
   flex-direction: column;
   align-items: center;
 }
+.bolder{
+  font-weight: 400;
+}
 
 #validation {
-  color:rgb(207, 0, 0);
-  background-color: white;
   width:300px;
   margin: 0 auto;
   border-radius: 10px;
   margin-top: var(--main-margin);
   padding: 5px;
+}
+
+.red-validation{
+  color:rgb(207, 0, 0);
 }

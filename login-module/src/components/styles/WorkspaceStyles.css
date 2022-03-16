@@ -1,0 +1,28 @@
+.welcome-title{
+    color:white;
+    margin-bottom: 30px;
+}
+
+#workspace{
+    margin:0 auto;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:2rem;
+    width:90%;
+}
+#workspace section{
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+#wrapper{
+    padding-top:4rem;
+}
+
+#error{
+    background-color: white;
+    margin: 100px auto;
+    width: 500px;
+    padding:20px;
+    border-radius: 10px;
+}

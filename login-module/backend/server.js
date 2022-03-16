@@ -1,7 +1,7 @@
 const express       = require('express')
 const app           = express();
 const mongoose      = require('mongoose')
-const User          = require('../models/User')
+const User          = require('./models/User')
 const cors          = require('cors')
 const bodyParser    = require('body-parser')
 
@@ -12,7 +12,6 @@ app.use(express.urlencoded({extended: true}));
 
 app.post('/users/login', async (req, res) => {
     const user = new User(req.body)
-    console.log(user)
     const userEmail = user.mail;
 
     const isUserRegistered = await User.exists({mail: userEmail});
@@ -30,6 +29,8 @@ app.post('/users/login', async (req, res) => {
                 }
             })
         })
+    }else{
+        res.send({message:'A user with that email does not exist', loggedIn: false})
     }
 
 })
@@ -38,7 +39,6 @@ app.post('/users/login', async (req, res) => {
 app.post('/users', async (req, res) => {
     const user = new User(req.body)
     const isMailAlreadyRegistrerd = await User.exists({mail: user.mail});
-    console.log(isMailAlreadyRegistrerd)
 
     if (isMailAlreadyRegistrerd){
         res.send({message: 'This mail is already connected to an account, try logging in', success: false})
