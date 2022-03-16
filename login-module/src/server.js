@@ -2,27 +2,33 @@ const express       = require('express')
 const app           = express();
 const mongoose      = require('mongoose')
 const User          = require('../models/User')
-//const bodyParser    = require('body-parser')
+const cors          = require('cors')
+const bodyParser    = require('body-parser')
 
-//app.use(bodyParser)
+app.use(bodyParser.json())
+app.use(cors());  
+app.use(express.urlencoded({extended: true}));
 
-;
-app.get('/', (req, res) => { //listens to get requests
-    console.log('hello world')
-    console.log(req)
-    console.log(res)
 
-}) 
-// app.post('/users', (req, res) => {
-//     //req.body() //this is bc of express urlencoded
-//     const user = new User(req.body);
-//     user.save()
-//         .then((result) => {
-//             res.redirect('/users')
-//         })
-//         .catch((err) => console.log(err))
+app.get('/users/login', async (req, res) => {
+    const user = new User(req.body)
+    
+})
 
-// })
+
+app.post('/users', async (req, res) => {
+    const user = new User(req.body)
+    const isMailAlreadyRegistrerd = await User.exists({mail: user.mail});
+    console.log(isMailAlreadyRegistrerd)
+
+    if (isMailAlreadyRegistrerd){
+        res.send({message: 'This mail is already connected to an account, try logging in', success: false})
+    }else{
+        user.save()
+            .then(result => res.send({message: 'You are now registered :), \n taking you to login page', success: true}))
+            .catch(err => console.log(err))
+    }
+})
 
 mongoose.connect(
     'mongodb+srv://lovisa:tindra@cluster0.i297s.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
