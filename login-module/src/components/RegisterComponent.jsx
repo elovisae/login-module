@@ -2,19 +2,19 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import './styles/LoginRegistrationComponents.css';
 
+
 const RegisterComponent = () => {
   const [mail, setMail]         = useState('');
   const [name, setName]         = useState('');
   const [phone, setPhone]       = useState('');
   const [password, setPassword] = useState('');
   const navigate                = useNavigate()
-
+  
   async function handleSubmit (e) {
     e.preventDefault();
     const validation = document.getElementById('validation');
-    if (passwordValidation(password) === true){      
+    if (passwordValidation(password, validation) === true){      
       let userData = {
-
         "mail": mail,
         "name": name,
         "phone": phone,
@@ -35,7 +35,6 @@ const RegisterComponent = () => {
           }
       } catch(error){
           console.log(error)
-  
       }
       
     }
@@ -44,7 +43,7 @@ const RegisterComponent = () => {
 
   return (
       <div id="register-div" className='form-div'>
-      <h1>Register and create Your Gallery</h1>
+      <h1>Register and create your workspace</h1>
       <article> 
           <form  onSubmit={ handleSubmit }>
               <div className="form-group">
@@ -64,19 +63,19 @@ const RegisterComponent = () => {
                 <input type="password" name="password" id="password" onChange={ e => setPassword(e.target.value) } required/>
               </div>
               <button>Register</button>
-              <p id="validation"></p>
+              <p id="validation" class="bolder"></p>
 
           </form>
           <section id="register">
-                    <p>Already a user? </p>
-                    <button onClick = { () => {navigate("/")} }>Login</button>
-                    </section>
+            <p class="bolder">Already a user? </p>
+            <button onClick = { () => {navigate("/")} }>Login</button>
+          </section>
       </article>
   </div>
   )
 }
 
-const passwordValidation = (password) =>{ 
+const passwordValidation = (password, validation) =>{ 
   const errors = []
   if (password.length < 8){
    errors.push('Password must be at least 8 characters');
@@ -88,9 +87,11 @@ const passwordValidation = (password) =>{
     errors.push("Your password must contain at least one digit."); 
   }
   if (errors.length > 0) {
-    alert(errors.join("\n"))
+    validation.innerText = (errors.join("\n"));
+    validation.classList.add('red-validation');
     return false
   }
+  validation.classList.remove('red-validation')
   return true
     
 }

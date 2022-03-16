@@ -44,7 +44,7 @@ const LoginComponent = () => {
     return (
         <div id="holder">
             <div id="login-div" className="form-div">
-                <h1>Login to Your Gallery</h1>
+                <h1>Login to your workspace</h1>
                 <article> 
                     <form onSubmit={ handleSubmit }>
                         <div className="form-group">
@@ -56,11 +56,11 @@ const LoginComponent = () => {
                             <input type="password" name="password" id="password" onChange={e => setPassword(e.target.value)}/> 
                         </div>
                         <button>Sign in</button>
-                        <p id="validation"></p>
+                        <p id="validation" class="bolder"></p>
 
                     </form>
                     <section id="register">
-                    <p>Don't have an account? </p>
+                    <p class="bolder">Don't have an account? </p>
                     <button onClick = { () => {navigate("/register")} }>Register now!</button>
                         
                     </section>
