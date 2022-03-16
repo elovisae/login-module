@@ -10,8 +10,8 @@ const RegisterComponent = () => {
   const navigate                = useNavigate()
 
   async function handleSubmit (e) {
-    const validation = document.getElementById('validation');
     e.preventDefault();
+    const validation = document.getElementById('validation');
     if (passwordValidation(password) === true){      
       let userData = {
 

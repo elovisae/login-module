@@ -6,13 +6,33 @@ const cors          = require('cors')
 const bodyParser    = require('body-parser')
 
 app.use(bodyParser.json())
-app.use(cors());  
+app.use(cors());
 app.use(express.urlencoded({extended: true}));
 
 
-app.get('/users/login', async (req, res) => {
+app.post('/users/login', async (req, res) => {
     const user = new User(req.body)
-    
+    console.log(user)
+    const userEmail = user.mail;
+
+    const isUserRegistered = await User.exists({mail: userEmail});
+    console.log(isUserRegistered)
+    if (isUserRegistered){
+        User.find()
+        .then((result) => {
+            const allUsers = result;
+            allUsers.map((dbuser) => {
+                if(user.mail === dbuser.mail){
+                    if(user.password === dbuser.password){
+                        res.send({message:'Logging in', success: true})
+                    }else{
+                        res.send({message:'Wrong password, try again', success: false})
+                    }
+                }
+            })
+        })
+    }
+
 })
 
 
