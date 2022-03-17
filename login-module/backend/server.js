@@ -50,7 +50,7 @@ app.post('/users', async (req, res) => {
 })
 
 mongoose.connect(
-    'mongodb+srv://lovisa:tindra@cluster0.i297s.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
+    'mongodb+srv://<username>:<password>@cluster0.i297s.mongodb.net/myFirstDatabase?retryWrites=true&w=majority',
     { useNewUrlParser: true, useUnifiedTopology: true },
     () => console.log('Connected to DB')
 )
